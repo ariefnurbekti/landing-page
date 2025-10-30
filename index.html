@@ -1,14 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jual Mobil Bekas Berkualitas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">OtoDeal</a>
+            </div>
+            <ul>
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#featured-cars">Stok Mobil</a></li>
+                <li><a href="#why-us">Mengapa Kami?</a></li>
+                <li><a href="#contact">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Temukan Mobil Bekas Impian Anda: Terinspeksi, Bergaransi, dan Harga Terbaik.</h1>
+                <p>Kami menyediakan mobil bekas berkualitas yang telah melewati 150+ titik inspeksi profesional.</p>
+                <a href="#featured-cars" class="cta-button">Lihat Stok Mobil</a>
+            </div>
+        </section>
+
+        <section id="why-us">
+            <h2>Mengapa Memilih Kami?</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Inspeksi Profesional</h3>
+                    <p>Setiap mobil telah lulus inspeksi ketat di 150+ titik untuk memastikan kualitas terbaik.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Harga Transparan</h3>
+                    <p>Tidak ada biaya tersembunyi. Harga yang Anda lihat adalah harga yang Anda bayar.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garansi Mesin</h3>
+                    <p>Kami memberikan garansi mesin hingga 1 tahun untuk ketenangan pikiran Anda.</p>
+                </div>
+                 <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Proses Cepat & Mudah</h3>
+                    <p>Bawa pulang mobil impian Anda dalam waktu 24 jam setelah kesepakatan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-cars">
+            <h2>Stok Pilihan Minggu Ini</h2>
+            <div class="filter-container">
+                <select id="brand-filter">
+                    <option value="all">Semua Merek</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="honda">Honda</option>
+                    <option value="suzuki">Suzuki</option>
+                </select>
+                <select id="type-filter">
+                    <option value="all">Semua Tipe</option>
+                    <option value="suv">SUV</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="mpv">MPV</option>
+                </select>
+            </div>
+            <div id="car-list" class="car-list">
+                <!-- Car cards will be injected here by JavaScript -->
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>Apa Kata Mereka?</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"Pelayanannya sangat memuaskan! Mobil yang saya beli dalam kondisi prima seperti yang dijanjikan. Sangat direkomendasikan!"</p>
+                    <span>- Budi Santoso, Jakarta</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Prosesnya cepat dan transparan. Saya tidak perlu khawatir ada biaya tambahan. Terima kasih OtoDeal!"</p>
+                    <span>- Ani Lestari, Surabaya</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Dapatkan Penawaran Spesial atau Jadwalkan Test Drive</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Nama Anda" required>
+                <input type="tel" name="whatsapp" placeholder="Nomor WhatsApp" required>
+                <select name="interest" id="car-interest">
+                  <option value="">Mobil yang diminati (opsional)</option>
+                  <!-- Options will be added dynamically -->
+                </select>
+                <button type="submit" class="cta-button">Kirim Sekarang</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p><strong>OtoDeal</strong></p>
+                <p>Jl. Raya Otomotif No. 123, Jakarta</p>
+                <p>Telepon: (021) 123-4567</p>
+                <p>Email: info@otodeal.com</p>
+            </div>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 OtoDeal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
