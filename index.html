@@ -9,6 +9,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Floating WhatsApp CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366; /* var(--whatsapp-green) */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,7 +57,6 @@
                 <li><a href="#hero">Beranda</a></li>
                 <li><a href="#featured-cars">Stok Mobil</a></li>
                 <li><a href="#why-us">Mengapa Kami?</a></li>
-                <li><a href="#contact">Hubungi Kami</a></li>
             </ul>
         </nav>
     </header>
@@ -94,15 +130,32 @@
                 </div>
             </div>
         </section>
-
-        <section id="contact">
-            <h2>Tertarik? Hubungi Kami Sekarang!</h2>
-            <p style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 30px;">Klik tombol di bawah untuk langsung terhubung dengan tim kami via WhatsApp untuk respon cepat.</p>
-            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20salah%20satu%20mobil%20Anda." class="whatsapp-button" target="_blank">
-                <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
-            </a>
-        </section>
     </main>
+
+    <!-- Lead Capture Modal -->
+    <div id="lead-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Satu Langkah Lagi...</h3>
+            <p>Silakan isi data Anda untuk terhubung langsung dengan tim sales kami.</p>
+            <form id="lead-form">
+                <div class="form-group">
+                    <label for="customer-name">Nama Lengkap</label>
+                    <input type="text" id="customer-name" name="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-whatsapp">Nomor WhatsApp (contoh: 6281234567890)</label>
+                    <input type="tel" id="customer-whatsapp" name="customer-whatsapp" required>
+                </div>
+                <button type="submit" class="cta-button">Kirim & Hubungi Sales</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp CTA -->
+    <div id="open-lead-form" class="floating-cta">
+        <i class="fab fa-whatsapp"></i>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -119,7 +172,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 Exova. All Rights Reserved.</p>
+             <a href="/admin.html" style="text-decoration: none; color: inherit;">&copy; 2024 Exova. All Rights Reserved.</a>
         </div>
     </footer>
 

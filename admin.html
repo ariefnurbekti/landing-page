@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Tambah Produk</title>
+    <title>Admin Panel - Exova</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Admin-specific styles */
@@ -11,21 +11,25 @@
             background-color: #f4f7f6;
         }
         .admin-container {
-            max-width: 800px;
+            max-width: 90%;
             margin: 40px auto;
             padding: 40px;
             background: white;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
-        .admin-container h1 {
+        .admin-container h1, .admin-container h2 {
             text-align: center;
             margin-bottom: 30px;
+            font-family: var(--font-heading);
+            color: var(--primary-dark);
         }
         .admin-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
         }
         .admin-form input,
         .admin-form select,
@@ -56,36 +60,103 @@
             font-weight: bold;
             color: var(--whatsapp-green);
         }
+        /* Leads Table Styles */
+        #leads-section {
+            margin-top: 60px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 40px;
+        }
+        #download-leads-csv {
+            display: block;
+            margin: 0 auto 30px auto;
+            padding: 12px 25px;
+            font-size: 1rem;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        #download-leads-csv:hover {
+            background-color: var(--primary-light);
+        }
+        .leads-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .leads-table th, .leads-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .leads-table th {
+            background-color: #f2f2f2;
+            font-weight: 700;
+        }
+        .leads-table tr:nth-child(even) {background-color: #f9f9f9;}
+        .leads-table tr:hover {background-color: #f1f1f1;}
+        #no-leads-message {
+            text-align: center;
+            color: #888;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="admin-container">
-        <h1>Panel Admin - Tambah Mobil Baru</h1>
-        <form id="add-car-form" class="admin-form">
-            <select name="brand" id="car-brand" required>
-                <option value="">-- Pilih Merek --</option>
-                <option value="toyota">Toyota</option>
-                <option value="honda">Honda</option>
-                <option value="suzuki">Suzuki</option>
-                <option value="daihatsu">Daihatsu</option>
-                <option value="mitsubishi">Mitsubishi</option>
-            </select>
-            <input type="text" name="model" id="car-model" placeholder="Model Mobil (e.g., Avanza, Civic)" required>
-            <input type="number" name="year" id="car-year" placeholder="Tahun" required>
-            <input type="number" name="price" id="car-price" placeholder="Harga" required>
-             <select name="type" id="car-type" required>
-                <option value="">-- Pilih Tipe --</option>
-                <option value="suv">SUV</option>
-                <option value="sedan">Sedan</option>
-                <option value="mpv">MPV</option>
-                <option value="hatchback">Hatchback</option>
-            </select>
-            <input type="url" name="image" id="car-image" placeholder="URL Gambar Mobil" required>
-            <textarea name="description" id="car-description" rows="4" placeholder="Deskripsi singkat (e.g., KM rendah, terawat, siap pakai)"></textarea>
-            <button type="submit">Tambah Mobil</button>
-        </form>
-        <div id="feedback-message"></div>
-        <a href="/" style="display: block; text-align: center; margin-top: 30px;">Kembali ke Halaman Utama</a>
+        <h1>Panel Admin</h1>
+        
+        <section id="add-car-section">
+            <h2>Tambah Mobil Baru</h2>
+            <form id="add-car-form" class="admin-form">
+                <select name="brand" id="car-brand" required>
+                    <option value="">-- Pilih Merek --</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="honda">Honda</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="daihatsu">Daihatsu</option>
+                    <option value="mitsubishi">Mitsubishi</option>
+                </select>
+                <input type="text" name="model" id="car-model" placeholder="Model Mobil (e.g., Avanza, Civic)" required>
+                <input type="number" name="year" id="car-year" placeholder="Tahun" required>
+                <input type="number" name="price" id="car-price" placeholder="Harga" required>
+                 <select name="type" id="car-type" required>
+                    <option value="">-- Pilih Tipe --</option>
+                    <option value="suv">SUV</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="mpv">MPV</option>
+                    <option value="hatchback">Hatchback</option>
+                </select>
+                <input type="url" name="image" id="car-image" placeholder="URL Gambar Mobil" required>
+                <textarea name="description" id="car-description" rows="4" placeholder="Deskripsi singkat (e.g., KM rendah, terawat, siap pakai)"></textarea>
+                <button type="submit">Tambah Mobil</button>
+            </form>
+            <div id="feedback-message"></div>
+        </section>
+
+        <section id="leads-section">
+            <h2>Data Prospek Pelanggan</h2>
+            <button id="download-leads-csv">Download Data (CSV)</button>
+            <table class="leads-table">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Nama</th>
+                        <th>No. WhatsApp</th>
+                        <th>Mobil yang Diminati</th>
+                    </tr>
+                </thead>
+                <tbody id="leads-table-body">
+                    <!-- Data prospek akan ditampilkan di sini -->
+                </tbody>
+            </table>
+             <div id="no-leads-message" style="display: none;">Belum ada data prospek yang masuk.</div>
+        </section>
+
+        <a href="/" style="display: block; text-align: center; margin-top: 50px;">Kembali ke Halaman Utama</a>
     </div>
 
     <script src="admin.js"></script>
