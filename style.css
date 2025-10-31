@@ -6,6 +6,7 @@
     --text-light: #EEEEEE;
     --background-light: #FFFFFF;
     --whatsapp-green: #25D366;
+    --success-green: #28a745; /* New green for submit button */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Lato', sans-serif;
     --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -154,7 +155,7 @@ nav ul li a:hover {
 /* Why Us Section - ENHANCED */
 #why-us {
     background-color: #f4f4f4;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3E%3C/g%3E%3C/svg%3E");
 }
 
 .features {
@@ -412,4 +413,17 @@ footer {
 #lead-form .cta-button {
     width: 100%;
     padding: 18px;
+}
+
+/* Style for the green submit button */
+#submit-lead-btn {
+    background-color: var(--success-green);
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+#submit-lead-btn:hover {
+    background-color: #218838; /* Darker green */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
 }
