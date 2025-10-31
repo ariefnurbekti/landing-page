@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Tambah Produk</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Admin-specific styles */
+        body {
+            background-color: #f4f7f6;
+        }
+        .admin-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .admin-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .admin-form input,
+        .admin-form select,
+        .admin-form textarea {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: var(--font-body);
+        }
+        .admin-form button {
+            padding: 15px;
+            font-size: 1.1rem;
+            background-color: var(--accent-orange);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        .admin-form button:hover {
+            background-color: #ffb74d;
+        }
+        #feedback-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--whatsapp-green);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Panel Admin - Tambah Mobil Baru</h1>
+        <form id="add-car-form" class="admin-form">
+            <select name="brand" id="car-brand" required>
+                <option value="">-- Pilih Merek --</option>
+                <option value="toyota">Toyota</option>
+                <option value="honda">Honda</option>
+                <option value="suzuki">Suzuki</option>
+                <option value="daihatsu">Daihatsu</option>
+                <option value="mitsubishi">Mitsubishi</option>
+            </select>
+            <input type="text" name="model" id="car-model" placeholder="Model Mobil (e.g., Avanza, Civic)" required>
+            <input type="number" name="year" id="car-year" placeholder="Tahun" required>
+            <input type="number" name="price" id="car-price" placeholder="Harga" required>
+             <select name="type" id="car-type" required>
+                <option value="">-- Pilih Tipe --</option>
+                <option value="suv">SUV</option>
+                <option value="sedan">Sedan</option>
+                <option value="mpv">MPV</option>
+                <option value="hatchback">Hatchback</option>
+            </select>
+            <input type="url" name="image" id="car-image" placeholder="URL Gambar Mobil" required>
+            <textarea name="description" id="car-description" rows="4" placeholder="Deskripsi singkat (e.g., KM rendah, terawat, siap pakai)"></textarea>
+            <button type="submit">Tambah Mobil</button>
+        </form>
+        <div id="feedback-message"></div>
+        <a href="/" style="display: block; text-align: center; margin-top: 30px;">Kembali ke Halaman Utama</a>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
