@@ -1,96 +1,88 @@
+# Blueprint Aplikasi: Website Jual Beli Mobil Bekas
 
-# Blueprint: Landing Page Jualan Mobil Bekas
+## 1. Ikhtisar & Tujuan
 
-## Ikhtisar Aplikasi
+Aplikasi ini adalah sebuah *landing page* modern dan responsif untuk bisnis jual beli mobil bekas. Tujuannya adalah untuk menarik calon pembeli dengan menampilkan stok mobil yang tersedia secara profesional dan menyediakan cara yang mudah bagi mereka untuk menghubungi penjual melalui WhatsApp.
 
-**Tujuan:** Membuat landing page yang sangat efektif untuk menjual mobil bekas. Fokus utamanya adalah untuk menghasilkan prospek (leads) berkualitas tinggi dan mendorong konversi (misalnya, permintaan informasi, test drive, atau penjualan langsung).
+## 2. Struktur Proyek
 
-**Target Pengguna:** Calon pembeli mobil bekas yang mencari kendaraan berkualitas dengan harga bersaing secara online.
+```
+/
+|-- index.html       # Halaman utama untuk pengunjung
+|-- style.css        # File styling utama
+|-- main.js          # Logika interaktif utama (filter, modal, dll.)
+|-- admin.html       # Halaman admin untuk mengelola mobil dan leads
+|-- admin.js         # Logika untuk halaman admin
+|-- blueprint.md     # Dokumentasi ini
+|-- README.md
+|-- GEMINI.md
+```
 
-## Desain & Gaya (Berfokus pada Konversi)
+## 3. Desain & Gaya (Cascading Style Sheets)
 
-Landing page ini akan mengadopsi desain yang modern, profesional, dan dapat dipercaya untuk memberikan kesan pertama yang kuat.
+### Palet Warna
+- **Primary Text & Backgrounds**: `#222831` (Charcoal), `#3A4750` (Dark Gray), `#EEEEEE` (Light Gray)
+- **Aksen & CTA**: `#F9A826` (Golden Yellow)
+- **WhatsApp Green**: `#25D366`
 
-1.  **Palet Warna:**
-    *   **Utama:** Abu-abu gelap (`#222831`) dan Biru Laut (`#3A4750`) untuk menciptakan nuansa premium dan dapat dipercaya.
-    *   **Aksen (CTA):** Oranye Terang (`#F9A826`) untuk tombol *Call-to-Action* (CTA) agar menonjol dan menarik perhatian.
-    *   **Teks & Latar Belakang:** Putih (`#FFFFFF`) dan abu-abu muda (`#EEEEEE`) untuk keterbacaan maksimal dan tampilan yang bersih.
+### Tipografi
+- **Headings**: 'Poppins', `font-weight: 700` - Tegas dan modern.
+- **Body/Paragraph**: 'Lato', `font-weight: 400` - Mudah dibaca dan bersih.
 
-2.  **Tipografi:**
-    *   **Judul:** `Poppins`, Bold - Font yang modern dan mudah dibaca, memberikan kesan tegas dan jelas.
-    *   **Teks Umum:** `Lato`, Regular - Sangat mudah dibaca untuk deskripsi dan informasi detail.
+### Komponen UI
+- **Header**: Tetap di atas (sticky) dengan navigasi yang jelas.
+- **Tombol (CTA)**: Latar belakang gelap (`#222831`), teks terang, dengan efek *hover* yang halus.
+- **Kartu Mobil (Car Card)**: Menggunakan Shadow DOM untuk enkapsulasi. Memiliki efek *lift* saat di-hover. Setiap kartu menampilkan gambar, nama, harga, deskripsi singkat, dan tombol "Tanya Detail".
+- **Modal Lead Capture**: Tampilan *overlay* gelap dengan konten modal di tengah. Responsif dan memiliki tombol tutup yang jelas.
+- **Tombol CTA Melayang**: Ikon WhatsApp di pojok kanan bawah, tetap terlihat saat halaman di-scroll.
 
-3.  **Visual:**
-    *   **Ikonografi:** Menggunakan ikon yang bersih dan modern (misalnya, dari Font Awesome) untuk menyoroti fitur utama seperti "Mesin Terinspeksi", "Garansi", "Bebas Banjir".
-    *   **Gambar:** Gambar mobil berkualitas tinggi dengan latar belakang yang bersih. Akan menggunakan placeholder gambar yang relevan.
-    *   **Efek Visual:** Efek *hover* pada kartu mobil dan tombol, serta bayangan lembut (`drop-shadow`) untuk memberikan kedalaman dan nuansa interaktif.
+## 4. Fitur & Fungsionalitas (JavaScript)
 
-## Struktur & Fitur Halaman
+### Halaman Utama (`main.js`)
 
-Struktur halaman dirancang secara strategis untuk memandu pengguna dari titik awal hingga konversi.
+1.  **Penyimpanan Data Mobil**: 
+    *   Data mobil disimpan di `localStorage` untuk persistensi.
+    *   Saat aplikasi pertama kali dimuat, jika `localStorage` kosong, data akan diisi dengan daftar mobil awal (`initialCars`).
+    *   Ini memungkinkan data mobil dikelola secara dinamis melalui halaman admin.
 
-1.  **Header & Navigasi:**
-    *   Logo di sebelah kiri.
-    *   Menu navigasi sederhana: `Beranda`, `Stok Mobil`, `Mengapa Kami?`, `Hubungi Kami`.
-    *   Navigasi akan tetap terlihat (*sticky*) saat menggulir.
+2.  **Render Daftar Mobil**: 
+    *   Menggunakan **Web Components** (`<car-card>`) untuk merender setiap mobil.
+    *   Setiap kartu mobil adalah *custom element* dengan *Shadow DOM*, memastikan gaya dan perilakunya terenkapsulasi dan tidak berkonflik dengan bagian lain dari halaman.
 
-2.  **Hero Section:**
-    *   **Headline Kuat:** "Temukan Mobil Bekas Impian Anda: Terinspeksi, Bergaransi, dan Harga Terbaik."
-    *   **Sub-headline:** "Kami menyediakan mobil bekas berkualitas yang telah melewati 150+ titik inspeksi profesional."
-    *   **CTA Utama:** Tombol besar berwarna oranye dengan teks "Lihat Stok Mobil".
-    *   **Gambar Latar:** Gambar mobil yang menarik dan berkualitas tinggi.
+3.  **Filter Mobil**: 
+    *   Pengguna dapat memfilter mobil berdasarkan **Merek** (Toyota, Honda, dll.) dan **Tipe** (SUV, MPV, dll.).
+    *   Filter bekerja secara *real-time* tanpa perlu me-reload halaman.
 
-3.  **Bagian Keunggulan ("Mengapa Memilih Kami?"):**
-    *   Menggunakan layout berbasis ikon untuk menyoroti 3-4 keunggulan utama.
-    *   Contoh:
-        *   **Inspeksi Profesional:** "Setiap mobil telah lulus inspeksi ketat."
-        *   **Harga Transparan:** "Tidak ada biaya tersembunyi."
-        *   **Garansi Mesin:** "Garansi hingga 1 tahun untuk ketenangan Anda."
-        *   **Proses Cepat & Mudah:** "Bawa pulang mobil impian Anda dalam 24 jam."
+4.  **Modal & Lead Capture**: 
+    *   **Pemicu Modal**: Modal akan muncul saat:
+        1.  Pengguna mengklik tombol "Tanya Detail" pada salah satu kartu mobil.
+        2.  Pengguna mengklik tombol CTA WhatsApp yang melayang.
+    *   **Pengisian Informasi**: Saat modal terbuka dari kartu mobil, informasi mobil tersebut (mis: "Toyota Avanza G 2022") akan disimpan sementara untuk dimasukkan ke dalam pesan WhatsApp.
+    *   **Pengiriman Formulir**:
+        1.  Pengguna memasukkan Nama dan Nomor WhatsApp.
+        2.  Nomor WhatsApp divalidasi dan diformat ke format internasional (`62...`).
+        3.  Informasi *lead* (Nama, WhatsApp, Mobil yang Diminati, Timestamp) disimpan sebagai objek JSON di `localStorage` dengan *key* `leads`.
+        4.  Sebuah tab baru akan terbuka dengan URL `https://wa.me/...` yang berisi pesan otomatis. Contoh: "Halo, saya Budi. Saya tertarik dengan mobil Toyota Avanza G 2022."
+        5.  Modal akan tertutup dan formulir akan di-reset.
 
-4.  **Bagian Stok Mobil (Fitur Utama):**
-    *   Judul: "Stok Pilihan Minggu Ini".
-    *   **Filter/Pencarian Sederhana:** Opsi untuk filter berdasarkan Merek (Toyota, Honda, dll.) dan Tipe (SUV, Sedan, dll.).
-    *   **Kartu Mobil (Web Component `car-card`):**
-        *   Gambar mobil.
-        *   Nama mobil dan tahun.
-        *   Info utama: Kilometer, Transmisi (Matic/Manual), Bahan Bakar.
-        *   Harga yang jelas.
-        *   Tombol CTA "Lihat Detail" atau "Hubungi via WhatsApp".
+### Halaman Admin (`admin.js`)
 
-5.  **Bagian Testimoni Pelanggan:**
-    *   Menampilkan 2-3 kutipan testimoni dari pelanggan yang puas.
-    *   Termasuk nama dan foto (opsional) untuk membangun kepercayaan sosial (*social proof*).
+1.  **Otentikasi**: (Untuk versi masa depan) - Saat ini, halaman admin dapat diakses langsung, tetapi dapat diamankan dengan login sederhana jika diperlukan.
 
-6.  **Formulir Kontak (Lead Capture):**
-    *   Judul yang mengajak: "Dapatkan Penawaran Spesial" atau "Jadwalkan Test Drive".
-    *   Formulir sederhana: Nama, Nomor WhatsApp, dan Mobil yang Diminati (opsional).
-    *   Tombol submit yang jelas dengan teks "Kirim Sekarang".
+2.  **Tampilan Leads**: 
+    *   Membaca semua data dari `localStorage` dengan *key* `leads`.
+    *   Menampilkan semua *lead* yang masuk dalam format tabel yang mudah dibaca, diurutkan dari yang terbaru.
 
-7.  **Footer:**
-    *   Informasi kontak lengkap: Alamat, Nomor Telepon, Email.
-    *   Tautan ke media sosial.
-    *   Hak cipta.
+3.  **Manajemen Mobil**: 
+    *   Menampilkan semua mobil dari `localStorage` dengan *key* `cars`.
+    *   Menyediakan formulir untuk **Menambah**, **Mengedit**, atau **Menghapus** data mobil.
+    *   Setiap perubahan akan langsung memperbarui data di `localStorage`, sehingga perubahan tersebut langsung terlihat di halaman utama.
 
-## Rencana Implementasi
+## 5. Rencana Implementasi Saat Ini
 
-1.  **Tahap 1: Struktur HTML & Blueprint**
-    *   Buat `blueprint.md` (Selesai).
-    *   Inisialisasi `index.html` dengan struktur semantik (menggunakan tag `<header>`, `<main>`, `<section>`, `<footer>`).
-    *   Siapkan link untuk CSS dan JavaScript.
-
-2.  **Tahap 2: Styling dengan CSS**
-    *   Implementasikan desain visual yang telah direncanakan di `style.css`.
-    *   Gunakan CSS Variables untuk warna dan font agar mudah dikelola.
-    *   Terapkan layout responsif menggunakan Flexbox dan Grid.
-    *   Tambahkan efek visual (hover, shadow).
-
-3.  **Tahap 3: Interaktivitas dengan JavaScript**
-    *   Buat Web Component `<car-card>` di `main.js` untuk menampilkan mobil secara dinamis dan modular.
-    *   Tambahkan *event listener* untuk fungsionalitas filter.
-    *   Implementasikan navigasi *smooth scroll*.
-
-4.  **Tahap 4: Finalisasi & Review**
-    *   Isi konten (teks dan gambar placeholder).
-    *   Lakukan pengecekan error di konsol.
-    *   Pastikan semua CTA berfungsi dan halaman sepenuhnya responsif di berbagai perangkat.
+- **[✔]** Buat `blueprint.md`.
+- **[✔]** Tambahkan struktur HTML untuk modal dan tombol CTA melayang di `index.html`.
+- **[✔]** Tambahkan CSS untuk modal, formulir, dan tombol CTA di `style.css`.
+- **[✔]** Buat `admin.html` untuk menampilkan leads dan form manajemen mobil.
+- **[✔]** Buat `admin.js` untuk mengelola data di `localStorage`.
+- **[✔]** Implementasikan semua logika di `main.js`: manajemen data via `localStorage`, logika modal, penanganan formulir, dan pengalihan ke WhatsApp.

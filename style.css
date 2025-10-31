@@ -6,7 +6,6 @@
     --text-light: #EEEEEE;
     --background-light: #FFFFFF;
     --whatsapp-green: #25D366;
-    --success-green: #28a745; /* New green for submit button */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Lato', sans-serif;
     --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -306,25 +305,7 @@ footer {
     margin-top: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    h2 { font-size: 2.2rem; }
-    nav ul { display: none; }
-    .features, .car-list {
-        grid-template-columns: 1fr;
-    }
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .footer-content {
-        flex-direction: column;
-    }
-    section {
-        padding: 60px 15px;
-    }
-}
-
-/* --- MODAL STYLES (REVISED) --- */
+/* --- MODAL STYLES --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -333,13 +314,13 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1100;
-    display: none; /* Hidden by default */
+    display: none; 
     justify-content: center;
     align-items: center;
 }
 
 .modal-overlay.active {
-    display: flex; /* Shown when active */
+    display: flex;
 }
 
 .modal-content {
@@ -355,14 +336,8 @@ footer {
 }
 
 @keyframes fadeInModal {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .close-modal {
@@ -413,17 +388,65 @@ footer {
 #lead-form .cta-button {
     width: 100%;
     padding: 18px;
-}
-
-/* Style for the green submit button */
-#submit-lead-btn {
-    background-color: var(--success-green);
+    background-color: var(--whatsapp-green);
     color: var(--text-light);
-    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
 }
 
-#submit-lead-btn:hover {
-    background-color: #218838; /* Darker green */
+#lead-form .cta-button:hover {
+    background-color: #20b859;
     transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+
+/* --- FLOATING CTA BUTTON --- */
+.floating-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+    z-index: 999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-cta:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 { font-size: 2.2rem; }
+    nav ul { display: none; }
+    .features, .car-list {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .footer-content {
+        flex-direction: column;
+    }
+    section {
+        padding: 60px 15px;
+    }
+    .floating-cta {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
 }

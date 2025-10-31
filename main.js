@@ -8,76 +8,76 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'car-5', brand: 'honda', model: 'CR-V Prestige', year: 2022, price: 550000000, type: 'suv', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop', description: 'Fitur lengkap, sunroof, interior mewah.' }
     ];
 
-    function getCars() {
+    const getCars = () => {
         let cars = localStorage.getItem('cars');
         if (!cars || JSON.parse(cars).length === 0) {
             localStorage.setItem('cars', JSON.stringify(initialCars));
             return initialCars;
         }
         return JSON.parse(cars);
-    }
+    };
 
     const allCars = getCars();
 
-    // --- MODAL & FORM LOGIC (CLEAN REWRITE) ---
+    // --- MODAL & FORM LOGIC ---
     const leadModal = document.getElementById('lead-modal');
     const openModalBtn = document.getElementById('open-lead-form');
     const closeModalBtn = document.querySelector('.close-modal');
     const leadForm = document.getElementById('lead-form');
+    let interestedCarInfo = '';
 
     const openModal = (carInfo = '') => {
-        if (!leadModal || !leadForm) return;
-        const interestedCarInput = leadForm.querySelector('#interested-car');
-        if (interestedCarInput) {
-            interestedCarInput.value = carInfo;
-        }
+        interestedCarInfo = carInfo;
         leadModal.classList.add('active');
     };
 
     const closeModal = () => {
-        if (!leadModal) return;
         leadModal.classList.remove('active');
     };
 
-    // Attach listeners only if critical elements exist
-    if (leadModal && openModalBtn && closeModalBtn && leadForm) {
-        // Ensure the hidden input for interested car exists in the form
-        if (!leadForm.querySelector('#interested-car')) {
-            const interestedCarInput = document.createElement('input');
-            interestedCarInput.type = 'hidden';
-            interestedCarInput.id = 'interested-car';
-            leadForm.appendChild(interestedCarInput);
+    openModalBtn.addEventListener('click', () => openModal());
+    closeModalBtn.addEventListener('click', closeModal);
+    leadModal.addEventListener('click', (e) => {
+        if (e.target === leadModal) {
+            closeModal();
+        }
+    });
+
+    leadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('customer-name').value;
+        let whatsapp = document.getElementById('customer-whatsapp').value;
+
+        // --- Save lead to localStorage ---
+        const leads = JSON.parse(localStorage.getItem('leads') || '[]');
+        const newLead = {
+            name: name,
+            whatsapp: whatsapp,
+            carInfo: interestedCarInfo,
+            timestamp: new Date().toISOString(),
+        };
+        leads.push(newLead);
+        localStorage.setItem('leads', JSON.stringify(leads));
+
+        // --- Redirect to WhatsApp ---
+        if (whatsapp.startsWith('0')) {
+            whatsapp = '62' + whatsapp.substring(1);
+        } else if (whatsapp.startsWith('+62')) {
+            whatsapp = '62' + whatsapp.substring(2);
         }
 
-        openModalBtn.addEventListener('click', () => openModal());
-        closeModalBtn.addEventListener('click', closeModal);
-        leadModal.addEventListener('click', (e) => {
-            if (e.target === leadModal) closeModal();
-        });
+        let waText = `Halo, saya ${name}. Saya tertarik dengan mobil di situs Anda.`;
+        if (interestedCarInfo) {
+            waText = `Halo, saya ${name}. Saya tertarik dengan mobil ${interestedCarInfo}.`;
+        }
 
-        leadForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('customer-name').value;
-            let whatsapp = document.getElementById('customer-whatsapp').value;
-            const interestedCar = leadForm.querySelector('#interested-car').value;
+        const whatsappUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waText)}`;
+        window.open(whatsappUrl, '_blank');
 
-            if (whatsapp.startsWith('0')) whatsapp = '62' + whatsapp.substring(1);
-
-            const newLead = { name, whatsapp, interestedCar, timestamp: new Date().toISOString() };
-            const leads = JSON.parse(localStorage.getItem('leads')) || [];
-            leads.push(newLead);
-            localStorage.setItem('leads', JSON.stringify(leads));
-
-            let waText = `Halo, saya ${name}. Saya tertarik dengan mobil di situs Anda.`;
-            if (interestedCar) waText = `Halo, saya ${name}. Saya tertarik dengan mobil ${interestedCar}.`;
-            
-            const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(waText)}`;
-            window.open(whatsappUrl, '_blank');
-
-            closeModal();
-            leadForm.reset();
-        });
-    } 
+        closeModal();
+        leadForm.reset();
+        interestedCarInfo = '';
+    });
 
     // --- WEB COMPONENTS: CAR CARD ---
     class CarCard extends HTMLElement {
@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             super();
             this.attachShadow({ mode: 'open' });
         }
+
         connectedCallback() {
             const car = JSON.parse(this.getAttribute('data-car'));
             const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(car.price);
@@ -111,24 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
-
+            
             this.shadowRoot.querySelector('.card-cta-button').addEventListener('click', () => {
-                const carInfo = `${car.brand} ${car.model} (${car.year})`;
-                openModal(carInfo);
+                const carInfoForModal = `${car.brand} ${car.model} (${car.year})`;
+                openModal(carInfoForModal);
             });
         }
     }
-    if (!customElements.get('car-card')) {
-        customElements.define('car-card', CarCard);
-    }
+    customElements.define('car-card', CarCard);
 
     // --- APP LOGIC: CAR LIST & FILTER ---
     const carList = document.getElementById('car-list');
     const brandFilter = document.getElementById('brand-filter');
     const typeFilter = document.getElementById('type-filter');
 
-    function populateCars(carsToDisplay) {
-        if (!carList) return;
+    const populateCars = (carsToDisplay) => {
         carList.innerHTML = '';
         if (carsToDisplay.length === 0) {
             carList.innerHTML = '<p style="text-align: center; grid-column: 1 / -1;">Tidak ada mobil yang cocok dengan kriteria Anda.</p>';
@@ -139,34 +137,32 @@ document.addEventListener('DOMContentLoaded', () => {
             carCard.setAttribute('data-car', JSON.stringify(car));
             carList.appendChild(carCard);
         });
-    }
+    };
 
-    function filterCars() {
-        if (!brandFilter || !typeFilter) return;
+    const filterCars = () => {
         const selectedBrand = brandFilter.value;
         const selectedType = typeFilter.value;
+
         const filteredCars = allCars.filter(car => {
             const brandMatch = selectedBrand === 'all' || car.brand === selectedBrand;
             const typeMatch = selectedType === 'all' || car.type === selectedType;
             return brandMatch && typeMatch;
         });
-        populateCars(filteredCars);
-    }
 
-    if (carList && brandFilter && typeFilter) {
-        brandFilter.addEventListener('change', filterCars);
-        typeFilter.addEventListener('change', filterCars);
-        populateCars(allCars);
-    }
+        populateCars(filteredCars);
+    };
+
+    brandFilter.addEventListener('change', filterCars);
+    typeFilter.addEventListener('change', filterCars);
+
+    // Initial population of cars
+    populateCars(allCars);
 
     // --- SMOOTH SCROLL ---
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetElement = document.querySelector(this.getAttribute('href'));
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
     });
 });
