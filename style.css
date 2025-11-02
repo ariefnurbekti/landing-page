@@ -428,25 +428,46 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    h2 { font-size: 2.2rem; }
-    nav ul { display: none; }
+    h2 { font-size: 2rem; }
+    nav ul { 
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-dark);
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        padding: 1rem 0;
+    }
+    nav ul.active {
+        display: flex;
+    }
+    nav ul li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
     .features, .car-list {
         grid-template-columns: 1fr;
     }
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     .footer-content {
         flex-direction: column;
     }
     section {
-        padding: 60px 15px;
+        padding: 50px 15px;
     }
     .floating-cta {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.8rem;
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
     }
 }

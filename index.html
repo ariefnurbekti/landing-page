@@ -1,144 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jual Mobil Bekas Berkualitas</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">Exova</a>
-            </div>
-            <ul>
-                <li><a href="#hero">Beranda</a></li>
-                <li><a href="#featured-cars">Stok Mobil</a></li>
-                <li><a href="#why-us">Mengapa Kami?</a></li>
-            </ul>
-        </nav>
-    </header>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-    <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Temukan Mobil Bekas Impian Anda: Terinspeksi, Bergaransi, dan Harga Terbaik.</h1>
-                <p>Kami menyediakan mobil bekas berkualitas yang telah melewati 150+ titik inspeksi profesional.</p>
-                <a href="#featured-cars" class="cta-button">Lihat Stok Mobil</a>
-            </div>
-        </section>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/12.5.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/12.5.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.5.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-        <section id="why-us">
-            <h2>Mengapa Memilih Kami?</h2>
-            <div class="features">
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Inspeksi Profesional</h3>
-                    <p>Setiap mobil telah lulus inspeksi ketat di 150+ titik untuk memastikan kualitas terbaik.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Harga Transparan</h3>
-                    <p>Tidak ada biaya tersembunyi. Harga yang Anda lihat adalah harga yang Anda bayar.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Garansi Mesin</h3>
-                    <p>Kami memberikan garansi mesin hingga 1 tahun untuk ketenangan pikiran Anda.</p>
-                </div>
-                 <div class="feature-item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>Proses Cepat & Mudah</h3>
-                    <p>Bawa pulang mobil impian Anda dalam waktu 24 jam setelah kesepakatan.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="featured-cars">
-            <h2>Stok Pilihan Minggu Ini</h2>
-            <div class="filter-container">
-                <select id="brand-filter">
-                    <option value="all">Semua Merek</option>
-                    <option value="toyota">Toyota</option>
-                    <option value="honda">Honda</option>
-                    <option value="suzuki">Suzuki</option>
-                </select>
-                <select id="type-filter">
-                    <option value="all">Semua Tipe</option>
-                    <option value="suv">SUV</option>
-                    <option value="sedan">Sedan</option>
-                    <option value="mpv">MPV</option>
-                </select>
-            </div>
-            <div id="car-list" class="car-list">
-                <!-- Car cards will be injected here by JavaScript -->
-            </div>
-        </section>
-
-        <section id="testimonials">
-            <h2>Apa Kata Mereka?</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <p>"Pelayanannya sangat memuaskan! Mobil yang saya beli dalam kondisi prima seperti yang dijanjikan. Sangat direkomendasikan!"</p>
-                    <span>- Budi Santoso, Jakarta</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Prosesnya cepat dan transparan. Saya tidak perlu khawatir ada biaya tambahan. Terima kasih Exova!"</p>
-                    <span>- Ani Lestari, Surabaya</span>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Lead Capture Modal -->
-    <div id="lead-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3>Satu Langkah Lagi...</h3>
-            <p>Untuk mendapatkan penawaran terbaik dan informasi detail, mohon isi nama dan nomor WhatsApp Anda. Kami akan segera menghubungi Anda.</p>
-            <form id="lead-form">
-                <div class="form-group">
-                    <label for="customer-name">Nama Lengkap</label>
-                    <input type="text" id="customer-name" name="customer-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="customer-whatsapp">Nomor WhatsApp (contoh: 6281234567890)</label>
-                    <input type="tel" id="customer-whatsapp" name="customer-whatsapp" required>
-                </div>
-                <button type="submit" class="cta-button">Kirim & Lanjut ke WhatsApp</button>
-            </form>
-        </div>
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <!-- Floating WhatsApp CTA -->
-    <div id="open-lead-form" class="floating-cta">
-        <i class="fab fa-whatsapp"></i>
-    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <p><strong>Exova</strong></p>
-                <p>Jl. Raya Otomotif No. 123, Jakarta</p>
-                <p>Telepon: (021) 123-4567</p>
-                <p>Email: info@exova.com</p>
-            </div>
-            <div class="social-media">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-        <div class="copyright">
-             <a href="/admin.html" style="text-decoration: none; color: inherit;">&copy; 2024 Exova. All Rights Reserved.</a>
-        </div>
-    </footer>
-
-    <script src="main.js"></script>
-</body>
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
