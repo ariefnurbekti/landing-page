@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- MOBILE MENU ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
     // --- DATA HANDLING ---
     const initialCars = [
         { id: 'car-1', brand: 'toyota', model: 'Avanza G', year: 2022, price: 210000000, type: 'mpv', image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop', description: 'KM 15.000, servis rutin, tangan pertama.' },

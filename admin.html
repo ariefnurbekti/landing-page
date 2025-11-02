@@ -3,184 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Exova</title>
-    <link rel="stylesheet" href="style.css"> 
-    <style>
-        /* Admin-specific styles */
-        body {
-            background-color: #f4f7f9;
-        }
-        header {
-            position: sticky; /* Keep header sticky */
-            top: 0;
-            z-index: 1000;
-        }
-        main {
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .admin-section {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            color: #222831;
-            border-bottom: 3px solid #F9A826;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th, td {
-            padding: 12px 15px;
-            border: 1px solid #e0e0e0;
-            text-align: left;
-            font-family: 'Lato', sans-serif;
-        }
-        th {
-            background-color: #f2f2f2;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        .form-group label {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #3A4750;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .admin-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-        }
-        .save-button {
-            background-color: #28a745;
-            color: white;
-        }
-        .save-button:hover { background-color: #218838; }
-        .clear-button {
-            background-color: #ffc107;
-            color: #212529;
-        }
-        .clear-button:hover { background-color: #e0a800; }
-        .delete-button {
-            background-color: #dc3545;
-            color: white;
-            font-size: 0.8rem;
-            padding: 5px 10px;
-        }
-        .delete-button:hover { background-color: #c82333; }
-    </style>
+    <title>Admin Dashboard - Prospek</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">Exova (Admin)</a></div>
-            <ul>
-                <li><a href="/">Lihat Situs</a></li>
-            </ul>
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit;">Exova - Admin</a>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section id="leads" class="admin-section">
-            <h2>Leads yang Masuk</h2>
+    <main style="padding-top: 40px; text-align: left;">
+        <section id="leads-section">
+            <h2>Daftar Prospek Pelanggan</h2>
             <div id="leads-table-container">
-                <p>Tidak ada leads yang masuk saat ini.</p>
-            </div>
-        </section>
-
-        <section id="car-management" class="admin-section">
-            <h2>Manajemen Stok Mobil</h2>
-            <form id="car-form">
-                <input type="hidden" id="car-id">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="car-brand">Merek</label>
-                        <select id="car-brand" required>
-                            <option value="toyota">Toyota</option>
-                            <option value="honda">Honda</option>
-                            <option value="suzuki">Suzuki</option>
-                            <option value="daihatsu">Daihatsu</option>
-                            <option value="mitsubishi">Mitsubishi</option>
-                            <option value="nissan">Nissan</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="car-model">Model</label>
-                        <input type="text" id="car-model" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="car-year">Tahun</label>
-                        <input type="number" id="car-year" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="car-price">Harga</label>
-                        <input type="number" id="car-price" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="car-type">Tipe</label>
-                        <select id="car-type" required>
-                            <option value="suv">SUV</option>
-                            <option value="mpv">MPV</option>
-                            <option value="hatchback">Hatchback</option>
-                            <option value="sedan">Sedan</option>
-                             <option value="pickup">Pickup</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="car-image">URL Gambar</label>
-                        <input type="url" id="car-image" required>
-                    </div>
-                    <div class="form-group" style="grid-column: 1 / -1;">
-                        <label for="car-description">Deskripsi Singkat</label>
-                        <textarea id="car-description" rows="3" required></textarea>
-                    </div>
-                </div>
-                <div class="button-group">
-                    <button type="submit" class="admin-button save-button">Simpan Mobil</button>
-                    <button type="button" class="admin-button clear-button" id="clear-form-btn">Batal</button>
-                </div>
-            </form>
-            
-            <h3 style="margin-top: 2rem;">Daftar Mobil Saat Ini</h3>
-            <div id="car-list-container">
-                <!-- Daftar mobil akan dirender di sini oleh admin.js -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Timestamp</th>
+                            <th>Nama</th>
+                            <th>WhatsApp</th>
+                            <th>Mobil yang Diminati</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-tbody">
+                        <!-- Data prospek akan ditampilkan di sini -->
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>

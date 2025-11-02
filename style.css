@@ -101,6 +101,14 @@ nav ul li a:hover {
     color: var(--accent-orange);
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
 /* Hero Section */
 #hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2025&auto=format&fit=crop');
@@ -416,7 +424,7 @@ footer {
     font-size: 2rem;
     text-decoration: none;
     box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
-    z-index: 999;
+    z-index: 1001;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -425,10 +433,57 @@ footer {
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
 }
 
+/* --- ADMIN PAGE STYLES --- */
+#leads-section h2 {
+    text-align: left;
+}
+
+#leads-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+thead {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td a {
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
     h2 { font-size: 2rem; }
+    
     nav ul { 
         display: none; 
         flex-direction: column;
@@ -446,28 +501,53 @@ footer {
         margin: 1rem 0;
         text-align: center;
     }
+    
     .menu-toggle {
-        display: block; /* Show hamburger menu */
-        font-size: 1.8rem;
-        cursor: pointer;
+        display: block;
     }
+
     .features, .car-list {
         grid-template-columns: 1fr;
     }
+    
     .hero-content h1 {
         font-size: 2.2rem;
     }
+    
     .footer-content {
         flex-direction: column;
     }
+    
     section {
         padding: 50px 15px;
     }
+    
     .floating-cta {
         bottom: 15px;
         right: 15px;
         width: 50px;
         height: 50px;
         font-size: 1.6rem;
+    }
+
+    /* Admin table responsive */
+    thead { display: none; }
+    tbody, tr, td { display: block; width: 100%; }
+    tr { margin-bottom: 15px; border: 1px solid #ddd; }
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
     }
 }
