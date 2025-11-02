@@ -1,88 +1,43 @@
-# Blueprint Aplikasi: Website Jual Beli Mobil Bekas
+# Proyek Jual Beli Mobil "Oberlo"
 
-## 1. Ikhtisar & Tujuan
+## Ikhtisar
 
-Aplikasi ini adalah sebuah *landing page* modern dan responsif untuk bisnis jual beli mobil bekas. Tujuannya adalah untuk menarik calon pembeli dengan menampilkan stok mobil yang tersedia secara profesional dan menyediakan cara yang mudah bagi mereka untuk menghubungi penjual melalui WhatsApp.
+Proyek ini menggabungkan desain visual dari template "Oberlo" dengan fungsionalitas aplikasi jual beli mobil bekas yang dibuat khusus. Tujuannya adalah untuk menciptakan platform yang menarik secara visual bagi pengguna untuk menelusuri daftar mobil dan bagi admin untuk mengelola inventaris dan prospek.
 
-## 2. Struktur Proyek
+## Desain & Struktur (Basis: Oberlo)
 
-```
-/
-|-- index.html       # Halaman utama untuk pengunjung
-|-- style.css        # File styling utama
-|-- main.js          # Logika interaktif utama (filter, modal, dll.)
-|-- admin.html       # Halaman admin untuk mengelola mobil dan leads
-|-- admin.js         # Logika untuk halaman admin
-|-- blueprint.md     # Dokumentasi ini
-|-- README.md
-|-- GEMINI.md
-```
+- **Struktur File:** Proyek akan mempertahankan struktur file asli dari template Oberlo (`index.html`, `css/`, `images/`, `js/`).
+- **Tampilan Visual:** Akan mempertahankan estetika modern, palet warna, dan tipografi dari template Oberlo untuk memastikan pengalaman pengguna premium.
+- **Responsif:** Desain akan tetap sepenuhnya responsif untuk perangkat seluler dan desktop.
 
-## 3. Desain & Gaya (Cascading Style Sheets)
+## Fungsionalitas Inti (Aplikasi Jual Beli Mobil)
 
-### Palet Warna
-- **Primary Text & Backgrounds**: `#222831` (Charcoal), `#3A4750` (Dark Gray), `#EEEEEE` (Light Gray)
-- **Aksen & CTA**: `#F9A826` (Golden Yellow)
-- **WhatsApp Green**: `#25D366`
+1.  **Manajemen Inventaris Dinamis:**
+    *   Daftar mobil tidak akan statis di HTML.
+    *   Data mobil (nama, tahun, harga, gambar, dll.) akan disimpan dalam `localStorage` dan dikelola melalui halaman admin khusus.
+    *   Halaman utama akan secara dinamis memuat dan menampilkan mobil dari `localStorage`.
 
-### Tipografi
-- **Headings**: 'Poppins', `font-weight: 700` - Tegas dan modern.
-- **Body/Paragraph**: 'Lato', `font-weight: 400` - Mudah dibaca dan bersih.
+2.  **Fitur "Tanya Detail" (Prospek/Leads via WhatsApp):**
+    *   Setiap kartu mobil akan memiliki tombol "Tanya Detail".
+    *   Mengklik tombol ini akan membuka modal (pop-up) yang berisi formulir.
+    *   Pengguna memasukkan **Nama** dan **Nomor WhatsApp** mereka.
+    *   Setelah mengirimkan, aplikasi akan:
+        1.  Menyimpan detail prospek (nama, nomor, mobil yang diminati) ke `localStorage`.
+        2.  Membuka tab baru yang mengarahkan ke `wa.me` dengan pesan yang sudah diisi sebelumnya untuk memulai percakapan.
 
-### Komponen UI
-- **Header**: Tetap di atas (sticky) dengan navigasi yang jelas.
-- **Tombol (CTA)**: Latar belakang gelap (`#222831`), teks terang, dengan efek *hover* yang halus.
-- **Kartu Mobil (Car Card)**: Menggunakan Shadow DOM untuk enkapsulasi. Memiliki efek *lift* saat di-hover. Setiap kartu menampilkan gambar, nama, harga, deskripsi singkat, dan tombol "Tanya Detail".
-- **Modal Lead Capture**: Tampilan *overlay* gelap dengan konten modal di tengah. Responsif dan memiliki tombol tutup yang jelas.
-- **Tombol CTA Melayang**: Ikon WhatsApp di pojok kanan bawah, tetap terlihat saat halaman di-scroll.
+3.  **Halaman Admin:**
+    *   Akan ada halaman `admin.html` yang terpisah dan dilindungi (di masa depan).
+    *   **Fitur Halaman Admin:**
+        *   **Melihat Prospek:** Menampilkan daftar semua prospek yang dikumpulkan dari formulir "Tanya Detail".
+        *   **Mengelola Inventaris Mobil:** Antarmuka untuk **menambah**, **mengedit**, dan **menghapus** daftar mobil. Perubahan ini akan langsung memengaruhi `localStorage` dan, akibatnya, apa yang ditampilkan di halaman utama.
 
-## 4. Fitur & Fungsionalitas (JavaScript)
+## Rencana Implementasi Saat Ini
 
-### Halaman Utama (`main.js`)
+**Tugas:** Mengintegrasikan fungsionalitas jual beli mobil ke dalam template Oberlo.
 
-1.  **Penyimpanan Data Mobil**: 
-    *   Data mobil disimpan di `localStorage` untuk persistensi.
-    *   Saat aplikasi pertama kali dimuat, jika `localStorage` kosong, data akan diisi dengan daftar mobil awal (`initialCars`).
-    *   Ini memungkinkan data mobil dikelola secara dinamis melalui halaman admin.
+**Langkah-langkah Selanjutnya:**
 
-2.  **Render Daftar Mobil**: 
-    *   Menggunakan **Web Components** (`<car-card>`) untuk merender setiap mobil.
-    *   Setiap kartu mobil adalah *custom element* dengan *Shadow DOM*, memastikan gaya dan perilakunya terenkapsulasi dan tidak berkonflik dengan bagian lain dari halaman.
-
-3.  **Filter Mobil**: 
-    *   Pengguna dapat memfilter mobil berdasarkan **Merek** (Toyota, Honda, dll.) dan **Tipe** (SUV, MPV, dll.).
-    *   Filter bekerja secara *real-time* tanpa perlu me-reload halaman.
-
-4.  **Modal & Lead Capture**: 
-    *   **Pemicu Modal**: Modal akan muncul saat:
-        1.  Pengguna mengklik tombol "Tanya Detail" pada salah satu kartu mobil.
-        2.  Pengguna mengklik tombol CTA WhatsApp yang melayang.
-    *   **Pengisian Informasi**: Saat modal terbuka dari kartu mobil, informasi mobil tersebut (mis: "Toyota Avanza G 2022") akan disimpan sementara untuk dimasukkan ke dalam pesan WhatsApp.
-    *   **Pengiriman Formulir**:
-        1.  Pengguna memasukkan Nama dan Nomor WhatsApp.
-        2.  Nomor WhatsApp divalidasi dan diformat ke format internasional (`62...`).
-        3.  Informasi *lead* (Nama, WhatsApp, Mobil yang Diminati, Timestamp) disimpan sebagai objek JSON di `localStorage` dengan *key* `leads`.
-        4.  Sebuah tab baru akan terbuka dengan URL `https://wa.me/...` yang berisi pesan otomatis. Contoh: "Halo, saya Budi. Saya tertarik dengan mobil Toyota Avanza G 2022."
-        5.  Modal akan tertutup dan formulir akan di-reset.
-
-### Halaman Admin (`admin.js`)
-
-1.  **Otentikasi**: (Untuk versi masa depan) - Saat ini, halaman admin dapat diakses langsung, tetapi dapat diamankan dengan login sederhana jika diperlukan.
-
-2.  **Tampilan Leads**: 
-    *   Membaca semua data dari `localStorage` dengan *key* `leads`.
-    *   Menampilkan semua *lead* yang masuk dalam format tabel yang mudah dibaca, diurutkan dari yang terbaru.
-
-3.  **Manajemen Mobil**: 
-    *   Menampilkan semua mobil dari `localStorage` dengan *key* `cars`.
-    *   Menyediakan formulir untuk **Menambah**, **Mengedit**, atau **Menghapus** data mobil.
-    *   Setiap perubahan akan langsung memperbarui data di `localStorage`, sehingga perubahan tersebut langsung terlihat di halaman utama.
-
-## 5. Rencana Implementasi Saat Ini
-
-- **[✔]** Buat `blueprint.md`.
-- **[✔]** Tambahkan struktur HTML untuk modal dan tombol CTA melayang di `index.html`.
-- **[✔]** Tambahkan CSS untuk modal, formulir, dan tombol CTA di `style.css`.
-- **[✔]** Buat `admin.html` untuk menampilkan leads dan form manajemen mobil.
-- **[✔]** Buat `admin.js` untuk mengelola data di `localStorage`.
-- **[✔]** Implementasikan semua logika di `main.js`: manajemen data via `localStorage`, logika modal, penanganan formulir, dan pengalihan ke WhatsApp.
+1.  **Buat `main.js` untuk Data Mobil:** Inisialisasi data mobil dalam array JavaScript dan simpan ke `localStorage`.
+2.  **Render Mobil Secara Dinamis:** Ganti bagian mobil statis di `index.html` dengan kontainer kosong. Gunakan JavaScript untuk mengisi kontainer ini dengan data dari `localStorage`.
+3.  **Buat Modal & Logika WhatsApp:** Tambahkan HTML modal ke `index.html` dan tulis skrip untuk menangani pembukaan modal dan pengiriman formulir ke WhatsApp.
+4.  **Buat Halaman Admin `admin.html` & `admin.js`:** Bangun antarmuka untuk melihat prospek dan mengelola inventaris mobil.

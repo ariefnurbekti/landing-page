@@ -1,146 +1,357 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jual Mobil Bekas Berkualitas</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">Exova</a>
-            </div>
-            <ul id="nav-links">
-                <li><a href="#hero">Beranda</a></li>
-                <li><a href="#featured-cars">Stok Mobil</a></li>
-                <li><a href="#why-us">Mengapa Kami?</a></li>
-            </ul>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Oberlo</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Custom Modal CSS -->
+      <link rel="stylesheet" type="text/css" href="css/custom-modal.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- font awesome css -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
 
-    <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Temukan Mobil Bekas Impian Anda: Terinspeksi, Bergaransi, dan Harga Terbaik.</h1>
-                <p>Kami menyediakan mobil bekas berkualitas yang telah melewati 150+ titik inspeksi profesional.</p>
-                <a href="#featured-cars" class="cta-button">Lihat Stok Mobil</a>
-            </div>
-        </section>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
 
-        <section id="why-us">
-            <h2>Mengapa Memilih Kami?</h2>
-            <div class="features">
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Inspeksi Profesional</h3>
-                    <p>Setiap mobil telah lulus inspeksi ketat di 150+ titik untuk memastikan kualitas terbaik.</p>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""> Models </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""> About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-brand" href=""> <span><span>OB</span>erlo</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""> Price</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""> Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="">Contact </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Harga Transparan</h3>
-                    <p>Tidak ada biaya tersembunyi. Harga yang Anda lihat adalah harga yang Anda bayar.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Garansi Mesin</h3>
-                    <p>Kami memberikan garansi mesin hingga 1 tahun untuk ketenangan pikiran Anda.</p>
-                </div>
-                 <div class="feature-item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>Proses Cepat & Mudah</h3>
-                    <p>Bawa pulang mobil impian Anda dalam waktu 24 jam setelah kesepakatan.</p>
-                </div>
+            </nav>
+         </div>
+      </header>
+      <!-- end header section -->
+      <!-- banner section start --> 
+      <div class="banner_section layout_padding">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6">
+                  <div id="banner_slider" class="carousel slide" data-ride="carousel">
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="banner_taital_main">
+                              <h1 class="banner_taital">New<br> Model Cars</h1>
+                              <p class="banner_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt uolore magna aliqua. Ut enim ad minim veniam, quis non</p>
+                              <div class="form-group">
+                                 <input type="text" class="update_mail" placeholder="Search here" name="Search here">
+                                 <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="banner_taital_main">
+                              <h1 class="banner_taital">New<br> Model Cars</h1>
+                              <p class="banner_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt uolore magna aliqua. Ut enim ad minim veniam, quis non</p>
+                              <div class="form-group">
+                                 <input type="text" class="update_mail" placeholder="Search here" name="Search here">
+                                 <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="banner_taital_main">
+                              <h1 class="banner_taital">New<br> Model Cars</h1>
+                              <p class="banner_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt uolore magna aliqua. Ut enim ad minim veniam, quis non</p>
+                              <div class="form-group">
+                                 <input type="text" class="update_mail" placeholder="Search here" name="Search here">
+                                 <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="carousel-control-prev" href="#banner_slider" role="button" data-slide="prev">
+                     <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a class="carousel-control-next" href="#banner_slider" role="button" data-slide="next">
+                     <i class="fa fa-angle-right"></i>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-6 padding_right0">
+                  <div class="banner_img"><img src="images/banner-img.png"></div>
+               </div>
             </div>
-        </section>
+         </div>
+      </div>
+      <!-- banner section end -->
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="about_img"><img src="images/about-img.png"></div>
+               </div>
+               <div class="col-md-6">
+                  <h3 class="about_taital">About Shoroom</h3>
+                    <p class="about_text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    <div class="readmore_btn"><a href="#">Read More<span class="arrow_icon"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+      <!-- models section start -->
+      <div class="models_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="models_taital">Our Models  Cars</h1>
+               </div>
+            </div>
+            <div id="car-listings-container">
+               <!-- Daftar mobil dinamis akan dimasukkan di sini oleh main.js -->
+            </div>
+         </div>
+      </div>
+      <!-- models section end -->
+      <div class="choose_section_2">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-3 col-sm-6">
+                     <h1 class="rated_text"><span class="padding_10"><img src="images/icon-1.png"></span>3700</h1>
+                     <p class="house_text">Happy Clients</p>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h1 class="rated_text"><span class="padding_10"><img src="images/icon-2.png"></span>5700</h1>
+                     <p class="house_text">Vehicles In Stock</p>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h1 class="rated_text"><span class="padding_10"><img src="images/icon-3.png"></span>124</h1>
+                     <p class="house_text">Awards</p>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h1 class="rated_text"><span class="padding_10"><img src="images/icon-4.png"></span>704</h1>
+                     <p class="house_text">Dealer Branches</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      <!-- blog section start -->
+      <div class="blog_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="blog_taital">FEATURED VEHICLES</h1>
+               </div>
+            </div>
+            <div class="blog_section_2">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="blog_img"><img src="images/img-4.png"></div>
+                     <div class="btn_main">
+                        <div class="date_text"><a href="#">Price $ 40000.0</a></div>
+                     </div>
+                     <div class="blog_box">
+                        <h3 class="blog_text">Voluptate</h3>
+                        <p class="lorem_text">Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum </p>
+                     </div>
+                     <div class="read_bt"><a href="#">Read More<span class="arrow_icon"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="blog_img"><img src="images/img-5.png"></div>
+                     <div class="btn_main">
+                        <div class="date_text active"><a href="#">Price $ 40000.0</a></div>
+                     </div>
+                     <div class="blog_box">
+                        <h3 class="blog_text">Voluptate</h3>
+                        <p class="lorem_text">Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum </p>
+                     </div>
+                     <div class="read_bt active"><a href="#">Read More<span class="arrow_icon"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="blog_img"><img src="images/img-6.png"></div>
+                     <div class="btn_main">
+                        <div class="date_text"><a href="#">Price $ 40000.0</a></div>
+                     </div>
+                     <div class="blog_box">
+                        <h3 class="blog_text">Voluptate</h3>
+                        <p class="lorem_text">Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum </p>
+                     </div>
+                     <div class="read_bt"><a href="#">Read More<span class="arrow_icon"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- blog section end -->
+      <!-- client section start -->
+      <div class="client_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="client_taital">What Says Our Students</h1>
+                  <p class="client_text">It is a long established fact that a reader will be distracted by the readable c</p>
+               </div>
+            </div>
+            <div class="customer_section_2">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="box_main">
+                           <div class="customer_main">
+                              <div class="customer_left">
+                                 <div class="customer_img"><img src="images/client-img.png"></div>
+                              </div>
+                              <div class="customer_right">
+                                 <h3 class="customer_name">DenoMark</h3>
+                                 <p class="enim_text">anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internetanything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet</p>
+                                 <div class="quick_icon"><img src="images/quick-icon.png"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- client section end -->
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="contact_taital">Get In Touch</h1>
+               </div>
+            </div>
+            <div class="contact_section_2">
+               <div class="mail_section map_form_container">
+                  <form action="">
+                  <input type="text" class="mail_text" placeholder="Name" name="Name">
+                  <input type="text" class="mail_text" placeholder="Phone Number" name="Phone Number"> 
+                  <input type="text" class="mail_text" placeholder="Email" name="Email">
+                  <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                  <div class="map_btn_main">
+                     <div class="send_bt"><a href="#">Send Now</a></div>
+                     <div class="map_bt"><a href="#" id="showMap">Map</a></div>
+                  </div>
+                  </form>
+                  <div class="map_main map_container">
+                     <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="368" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                         <div class="map_btn_main">
+                           <div class="map_bt d-flex justify-content-center w-100 map_center"><a href="#" id="showForm">Form</a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="location_main">
+               <div class="location_text">
+                  <ul>
+                     <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_15">(+71) 8522369417</span></a></li>
+                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="social_icon">
+               <ul>
+                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram" aria-hidden-true"></i></a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a>. DIstributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+         </div>
+      </div>
+      <!-- copyright section end -->
 
-        <section id="featured-cars">
-            <h2>Stok Pilihan Minggu Ini</h2>
-            <div class="filter-container">
-                <select id="brand-filter">
-                    <option value="all">Semua Merek</option>
-                    <option value="toyota">Toyota</option>
-                    <option value="honda">Honda</option>
-                    <option value="suzuki">Suzuki</option>
-                </select>
-                <select id="type-filter">
-                    <option value="all">Semua Tipe</option>
-                    <option value="suv">SUV</option>
-                    <option value="sedan">Sedan</option>
-                    <option value="mpv">MPV</option>
-                </select>
+      <!-- Modal Section -->
+      <div class="modal fade" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="inquiryModalLabel">Tanya Detail Mobil</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div id="car-list" class="car-list">
-                <!-- Car cards will be injected here by JavaScript -->
-            </div>
-        </section>
-
-        <section id="testimonials">
-            <h2>Apa Kata Mereka?</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <p>"Pelayanannya sangat memuaskan! Mobil yang saya beli dalam kondisi prima seperti yang dijanjikan. Sangat direkomendasikan!"</p>
-                    <span>- Budi Santoso, Jakarta</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Prosesnya cepat dan transparan. Saya tidak perlu khawatir ada biaya tambahan. Terima kasih Exova!"</p>
-                    <span>- Ani Lestari, Surabaya</span>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <p><strong>Exova</strong></p>
-                <p>Jl. Raya Otomotif No. 123, Jakarta</p>
-                <p>Telepon: (021) 123-4567</p>
-                <p>Email: info@exova.com</p>
-            </div>
-            <div class="social-media">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-        <div class="copyright">
-             <a href="/admin.html" style="text-decoration: none; color: inherit;">&copy; 2024 Exova. All Rights Reserved.</a>
-        </div>
-    </footer>
-
-    <!-- MODAL & FLOATING CTA (MOVED TO END OF BODY FOR STACKING CONTEXT) -->
-    <div id="lead-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3>Satu Langkah Lagi...</h3>
-            <p>Untuk mendapatkan penawaran terbaik dan informasi detail, mohon isi nama dan nomor WhatsApp Anda. Kami akan segera menghubungi Anda.</p>
-            <form id="lead-form">
+            <div class="modal-body">
+              <form id="inquiryForm">
+                <input type="hidden" id="inquiryCarId" name="carId">
                 <div class="form-group">
-                    <label for="customer-name">Nama Lengkap</label>
-                    <input type="text" id="customer-name" name="customer-name" required>
+                  <label for="customerName">Nama Anda</label>
+                  <input type="text" class="form-control" id="customerName" placeholder="Masukkan nama Anda" required>
                 </div>
                 <div class="form-group">
-                    <label for="customer-whatsapp">Nomor WhatsApp (contoh: 6281234567890)</label>
-                    <input type="tel" id="customer-whatsapp" name="customer-whatsapp" required>
+                  <label for="customerWaNumber">Nomor WhatsApp</label>
+                  <input type="tel" class="form-control" id="customerWaNumber" placeholder="Contoh: 628123456789" required>
                 </div>
-                <button type="submit" class="cta-button">Kirim & Lanjut ke WhatsApp</button>
-            </form>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">WhatsApp</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div id="open-lead-form" class="floating-cta">
-        <i class="fab fa-whatsapp"></i>
-    </div>
-
-    <script src="main.js"></script>
-</body>
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="js/main.js"></script>
+   </body>
 </html>
