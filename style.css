@@ -523,11 +523,21 @@ td a:hover {
     }
     
     .floating-cta {
-        bottom: 15px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.6rem;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+        display: flex !important; /* Memaksa display */
+        z-index: 9998 !important; /* Menaikkan z-index secara signifikan */
+    }
+
+    .modal-overlay {
+        z-index: 9999 !important; /* Memastikan modal di atas segalanya */
+    }
+
+    .modal-overlay.active {
+        display: flex !important; /* Memaksa modal untuk tampil */
     }
 
     /* Admin table responsive */
@@ -541,11 +551,12 @@ td a:hover {
         border: none;
         border-bottom: 1px solid #eee;
     }
+    td[data-label] { display: flex; align-items: center; } /* Fix alignment */
     td::before {
         content: attr(data-label);
         position: absolute;
-        left: 10px;
-        width: calc(50% - 20px);
+        left: 15px;
+        width: calc(50% - 25px);
         padding-right: 10px;
         text-align: left;
         font-weight: bold;

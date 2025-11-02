@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${formattedDate}</td>
-            <td>${lead.name}</td>
-            <td><a href="https://wa.me/${lead.whatsapp.replace(/[^0-9]/g, '')}" target="_blank">${lead.whatsapp}</a></td>
-            <td>${lead.carInfo || 'Tidak disebutkan'}</td>
+            <td data-label="No.">${index + 1}</td>
+            <td data-label="Timestamp">${formattedDate}</td>
+            <td data-label="Nama">${lead.name}</td>
+            <td data-label="WhatsApp"><a href="https://wa.me/${lead.whatsapp.replace(/[^0-9]/g, '')}" target="_blank">${lead.whatsapp}</a></td>
+            <td data-label="Mobil yang Diminati">${lead.carInfo || 'Tidak disebutkan'}</td>
         `;
         leadsTableBody.appendChild(row);
     });
