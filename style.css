@@ -314,21 +314,13 @@ footer {
 }
 
 /* --- MODAL STYLES --- */
+/* Styles are now primarily controlled by JavaScript */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 20000;
-    display: none; 
-    justify-content: center;
-    align-items: center;
+    display: none;
 }
 
 .modal-overlay.active {
-    display: flex;
+    /* JS will set this to display: flex */
 }
 
 .modal-content {
@@ -407,28 +399,10 @@ footer {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
-
 /* --- FLOATING CTA BUTTON --- */
-.floating-cta {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: var(--whatsapp-green);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    text-decoration: none;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
-    z-index: 10000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
+/* Styles are now primarily controlled by JavaScript */
 .floating-cta:hover {
+    /* We can keep hover effects */
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
 }
@@ -482,8 +456,6 @@ td a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* --- STACKING CONTEXT FIX --- */
-    /* Disable sticky header on mobile to prevent stacking context issues */
     header {
         position: static;
     }
@@ -526,14 +498,6 @@ td a:hover {
     
     section {
         padding: 50px 15px;
-    }
-    
-    .floating-cta {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.8rem;
     }
 
     /* Admin table responsive */

@@ -34,13 +34,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const leadForm = document.getElementById('lead-form');
     let interestedCarInfo = '';
 
+    // --- LAST RESORT: APPLY CRITICAL STYLES WITH JAVASCRIPT ---
+    const applyBruteForceStyles = () => {
+        openModalBtn.style.position = 'fixed';
+        openModalBtn.style.bottom = '20px';
+        openModalBtn.style.right = '20px';
+        openModalBtn.style.width = '55px';
+        openModalBtn.style.height = '55px';
+        openModalBtn.style.backgroundColor = '#25D366';
+        openModalBtn.style.color = 'white';
+        openModalBtn.style.borderRadius = '50%';
+        openModalBtn.style.display = 'flex';
+        openModalBtn.style.alignItems = 'center';
+        openModalBtn.style.justifyContent = 'center';
+        openModalBtn.style.fontSize = '1.8rem';
+        openModalBtn.style.zIndex = '99999';
+        openModalBtn.style.visibility = 'visible';
+        openModalBtn.style.opacity = '1';
+        
+        leadModal.style.position = 'fixed';
+        leadModal.style.top = '0';
+        leadModal.style.left = '0';
+        leadModal.style.width = '100%';
+        leadModal.style.height = '100%';
+        leadModal.style.zIndex = '100000';
+        leadModal.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        leadModal.style.justifyContent = 'center';
+        leadModal.style.alignItems = 'center';
+    };
+    applyBruteForceStyles();
+
     const openModal = (carInfo = '') => {
         interestedCarInfo = carInfo;
-        leadModal.classList.add('active');
+        leadModal.style.display = 'flex'; // Force display with JS
     };
 
     const closeModal = () => {
-        leadModal.classList.remove('active');
+        leadModal.style.display = 'none'; // Force display with JS
     };
 
     openModalBtn.addEventListener('click', () => openModal());
@@ -56,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = document.getElementById('customer-name').value;
         let whatsapp = document.getElementById('customer-whatsapp').value;
 
-        // --- Save lead to localStorage ---
         const leads = JSON.parse(localStorage.getItem('leads') || '[]');
         const newLead = {
             name: name,
@@ -67,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         leads.push(newLead);
         localStorage.setItem('leads', JSON.stringify(leads));
 
-        // --- Redirect to WhatsApp ---
         if (whatsapp.startsWith('0')) {
             whatsapp = '62' + whatsapp.substring(1);
         } else if (whatsapp.startsWith('+62')) {
@@ -163,14 +191,16 @@ document.addEventListener('DOMContentLoaded', () => {
     brandFilter.addEventListener('change', filterCars);
     typeFilter.addEventListener('change', filterCars);
 
-    // Initial population of cars
     populateCars(allCars);
 
     // --- SMOOTH SCROLL ---
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            const navEl = document.querySelector(this.getAttribute('href'));
+            if(navEl) {
+              navEl.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 });
