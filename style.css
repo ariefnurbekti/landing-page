@@ -528,16 +528,6 @@ td a:hover {
         width: 55px;
         height: 55px;
         font-size: 1.8rem;
-        display: flex !important; /* Memaksa display */
-        z-index: 9998 !important; /* Menaikkan z-index secara signifikan */
-    }
-
-    .modal-overlay {
-        z-index: 9999 !important; /* Memastikan modal di atas segalanya */
-    }
-
-    .modal-overlay.active {
-        display: flex !important; /* Memaksa modal untuk tampil */
     }
 
     /* Admin table responsive */
