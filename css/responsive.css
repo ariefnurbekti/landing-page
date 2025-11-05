@@ -103,6 +103,16 @@
     .contact .map_main {
         margin-top: 30px;
     }
+    /* Make stock cards 2-per-row */
+    .models_section .col-sm-6.col-md-4 {
+        width: 50%;
+    }
+    
+    /* Adjust banner text for tablets */
+    .banner_taital {
+        font-size: 45px;
+        line-height: 55px;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -162,22 +172,108 @@
     }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
+    /* --- General & Navigation --- */
     .header_section {
-        padding: 15px 0;
+        background-color: #1a1a1a; /* Ensure solid background when menu is open */
     }
-    .mean-container .mean-bar {
-        margin-top: 0;
+
+    .custom_nav-container {
+        justify-content: space-between;
     }
+    
+    .navbar-brand {
+        display: none; /* Hide the central logo in the nav bar on mobile */
+    }
+
+    /* --- Home Page (index.html) --- */
+    .banner_section .row {
+        flex-direction: column-reverse; /* Puts the image on top of the text */
+        text-align: center;
+    }
+
+    .banner_section .col-md-6 {
+        width: 100%;
+    }
+
+    .banner_img {
+        padding: 0 15px; /* Add some padding back */
+        margin-bottom: 30px;
+    }
+    
+    .banner_img img {
+        width: 100%;
+    }
+
+    .banner_taital_main {
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    .form-group {
+        justify-content: center;
+    }
+    
+    .banner_section {
+        height: auto; /* Let the content define the height */
+        padding-bottom: 40px;
+    }
+    
+    html, body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* --- Stock Page (stock.html) --- */
+    .models_section .col-sm-6.col-md-4 {
+        width: 100%; /* Make car cards full width */
+        max-width: 350px; /* But not too wide on slightly larger screens */
+        margin: 0 auto 30px;
+    }
+    
+    .models_box {
+        margin: 0;
+    }
+
+    /* --- Product Detail (Dynamically generated) --- */
+    .detail-container {
+        flex-direction: column; /* Stack image gallery and details vertically */
+    }
+
+    .detail-left, .detail-right {
+        width: 100% !important; /* Override inline styles */
+        padding: 0 !important;
+    }
+    
+    .detail-right {
+        margin-top: 30px;
+    }
+    
+    #main-image {
+        max-height: 250px;
+        object-fit: cover;
+    }
+    
+    #thumbnail-gallery {
+        justify-content: flex-start; /* Align thumbnails to the start */
+        flex-wrap: wrap; /* Allow thumbnails to wrap */
+    }
+
+    .thumbnail {
+        height: 50px;
+        flex-basis: 60px; /* Give thumbnails a base size */
+    }
+
+    .spec-table {
+        font-size: 14px;
+    }
+    
+    #back-to-list-btn {
+        margin-bottom: 20px;
+    }
+
+    /* Original styles from max-width: 575px to consolidate */
     .logo {
         padding: 0;
-    }
-    .banner_taital_main {
-        padding-top: 0;
-    }
-    .banner_taital {
-        font-size: 30px;
-        line-height: 40px;
     }
     .book_btn a {
         display: none;
@@ -186,19 +282,7 @@
         font-size: 28px;
         line-height: 40px;
     }
-    .about_img {
-        margin-bottom: 30px;
-    }
-    .our_room .room_img {
-        margin-bottom: 30px;
-    }
-    .our_room .bed_room {
-        margin-bottom: 30px;
-    }
-    .our_gallery .gallery_box {
-        margin-bottom: 30px;
-    }
-    .blog_room .blog_img {
+    .about_img, .our_room .room_img, .our_room .bed_room, .our_gallery .gallery_box, .blog_room .blog_img {
         margin-bottom: 30px;
     }
     .main_form .form-control {
@@ -213,13 +297,11 @@
     .customer_left,
     .customer_right {
         width: 100%;
+        padding-right: 0;
+        padding-left: 0;
     }
     .customer_left {
-        padding-right: 0;
         margin-bottom: 30px;
-    }
-    .customer_right {
-        padding-left: 0;
     }
     .contact .map_main {
         margin-top: 30px;
@@ -230,9 +312,7 @@
     .bottom_form h3 {
         font-size: 22px;
     }
-    .bottom_form .enter {
-        padding: 10px 15px;
-    }
+    .bottom_form .enter,
     .subsci_btn {
         padding: 10px 15px;
     }
