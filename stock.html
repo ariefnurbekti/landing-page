@@ -51,10 +51,19 @@
       </header>
       <!-- end header section -->
       
-      <!-- Bagian Konten Utama (Dikelola oleh main.js) -->
+      <!-- Bagian Konten Utama -->
       <div class="models_section layout_padding">
          <div class="container">
-            <!-- Seluruh konten di dalam container ini akan diganti oleh JavaScript -->
+            <h1 class="models_taital">Our Stock</h1>
+            <!-- Formulir Pencarian -->
+            <div class="search_form_container">
+               <input type="text" id="searchInput" class="form-control" placeholder="Cari mobil berdasarkan nama...">
+            </div>
+
+            <!-- Konten dinamis (mobil) akan dimuat di sini oleh main.js -->
+            <div id="car-list-container" class="row">
+               <!-- Kartu mobil akan dimasukkan di sini -->
+            </div>
          </div>
       </div>
 
@@ -69,7 +78,7 @@
       <!-- SKRIP PENTING -->
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script> <!-- Termasuk semua logika JS Bootstrap -->
+      <script src="js/bootstrap.bundle.min.js"></script>
       <script src="js/stock.js"></script>
       <script src="js/main.js"></script>
 

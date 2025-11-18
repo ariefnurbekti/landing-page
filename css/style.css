@@ -171,8 +171,8 @@ img {
 }
 
 .form-control:focus {
-    border-color: #ffffff !important;
-    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+    border-color: #fc9d22 !important;
+    box-shadow: 0 0 0 .2rem rgba(252, 157, 34, .25) !important;
 }
 
 .navbar-form input {
@@ -401,68 +401,6 @@ button {
     background-color: #fc9d22;
 }
 
-.search_bt {
-    width: 175px;
-    float: left;
-    padding-top: 40px;
-}
-
-.search_bt a {
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    background-color: #de6624;
-    color: #fefefd;
-    text-align: center;
-    padding: 12px;
-    border-radius: 5px;
-    text-transform: uppercase;
-}
-
-.search_bt a:hover {
-    color: #fefefd;
-    background-color: #474646;
-}
-
-
-#banner_slider .carousel-control-next, 
-#banner_slider .carousel-control-prev {
-    width: 55px;
-    height: 55px;
-    opacity: 1;
-    font-size: 30px;
-    color: #ffffff;
-    background-color: #fc9d22;
-    border-radius: 100%;
-    z-index: 1;
-}
-
-#banner_slider .carousel-control-next {
-    right: -105%;
-    top: 400px;
-    color: #252525;
-    background-color: #e1e1e1
-}
-
-#banner_slider .carousel-control-prev {
-    left: 0px;
-    top: 400px;
-}
-
-#banner_slider .carousel-control-next:focus, 
-#banner_slider .carousel-control-next:hover, 
-#banner_slider .carousel-control-prev:focus, 
-#banner_slider .carousel-control-prev:hover {
-    color: #252525;
-    background-color: #e1e1e1
-}
-
-.padding_right0 {
-    padding-right: 0;
-}
-
-
-
 
 /* banner section end */
 
@@ -491,40 +429,6 @@ button {
     left: 0px;
     right: initial;
     bottom: 0px;
-}
-
-.about_text {
-    width: 70%;
-    font-size: 14px;
-    color: #1b1b1b;
-    margin: 0px;
-    padding-top: 40px;
-}
-
-.readmore_btn {
-    width: 170px;
-    float: left;
-    padding-top: 40px;
-}
-
-.readmore_btn a {
-    width: 100%;
-    float: left;
-    font-size: 18px;
-    color: #fefefd;
-    background-color: #fc9d22;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.readmore_btn a:hover {
-    color: #fefefd;
-    background-color: #474646;
-}
-
-.arrow_icon {
-    padding-left: 15px;
 }
 
 
@@ -561,38 +465,6 @@ button {
 
 /* models section end */
 
-.choose_section_2 {
-    width: 100%;
-    float: left;
-    background-color: #fc9d22;
-    height: auto;
-    padding: 90px 0px;
-    margin-top: 30px;
-}
-
-.rated_text {
-    width: 100%;
-    float: left;
-    font-size: 30px;
-    color: #fefefd;
-    font-weight: bold;
-    padding-bottom: 0px;
-}
-
-.house_text {
-    width: 100%;
-    float: left;
-    font-size: 20px;
-    color: #fefefd;
-    font-weight: bold;
-    margin: 0px;
-    text-transform: uppercase;
-}
-
-.padding_10{
-    padding-right: 15px;
-}
-
 /* blog section start */
 
 .blog_section {
@@ -624,33 +496,6 @@ button {
 
 /* blog section end */
 
-/* client section start */
-
-.client_section {
-    width: 100%;
-    float: left;
-    padding-bottom: 90px;
-}
-.client_taital{
-    width: 100%;
-    float: left;
-    font-size: 40px;
-    color: #000;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
-}
-.client_text{
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    color: #000;
-    margin: 0px;
-    text-align: center;
-}
-
-/* client section end */
-
 /* contact section start */
 
 .contact_section {
@@ -672,8 +517,6 @@ button {
 }
 
 /* contact section end */
-
-
 
 /* copyright section start */
 
@@ -748,6 +591,12 @@ button {
 
 .tanya-btn {
     margin-top: 15px;
+}
+
+/* -- Search Form -- */
+.search_form_container {
+    margin: 30px auto;
+    max-width: 600px;
 }
 
 /* Detail View Styles */
